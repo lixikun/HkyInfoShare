@@ -1,0 +1,78 @@
+/*
+网站前台样式.
+*/
+
+/*头部样式*/
+#head { width:100%; }
+#head #logo {margin:20px 0px;}
+#head .login-link {line-height: 30px; padding:10px 15px;}
+#head .login-input {width:120px; margin-right: 2px; padding:0px 3px;}
+/*导航栏*/
+#nav {width: 100%; height: 40px; overflow: hidden; background-image: url("/image/web-head/nav-bg.jpg"); background-repeat: repeat-x;}
+#nav .nav-item {float:left; width:125px; height:40px; overflow:hidden; padding-left:0px; padding-right: 0px; color: #f0f0f0; font-weight:bold; line-height: 40px; font-size:15px;}
+#nav .nav-split {float:left; width:3px; height: 40px; background-image: url("/image/web-head/nav-item-split.png"); background-repeat: no-repeat;}
+/*功能菜单栏*/
+#menu-bar {width:100%; height: 40px; background-color: #f3f3f3; line-height: 40px; font-size:14px;}
+#menu-bar .menu-item {padding:0px 20px;  border-left: 1px solid #dddddd; }
+#menu-bar .menu-item:hover {font-weight: bold; color:#505050;}
+/*网站底部*/
+#foot {padding:15px 0px; line-height: 32px;}
+#foot #foot-nav {background-color: #1a75ce; color:#f0f0f0;}
+#foot #foot-nav .separator {padding:0px 15px;}
+
+/*首页*/
+#index-body {margin-top:15px;}
+#index-body .image-news-pic {max-height:300px; overflow: hidden;}/*图片新闻图片*/
+#index-body .image-news-pic img {width:100%; height: auto;}
+/*模块样式1*/
+#index-body .win-title-1 {width:100%; border-bottom:3px solid #0a66b3;}
+#index-body .win-title-1 .title-text {color:#f3f3f3; padding:4px 5px; margin-left:5px; font-size:15px; background-color: #0a66b3;}
+/*二级栏目入口*/
+#index-body .second-enter {}
+#index-body .second-enter .second-parent {padding: 5px 5px !important;}
+#index-body .second-enter .second-item {border-top:2px solid #f27f0c; border-bottom:2px solid #dcdcdc; background:url("/image/index-second-ico/second-item-bg.png") repeat-x; }
+#index-body .second-enter .second-item img {width: 60px; height: 60px;margin-top: 10px;}
+#index-body .second-enter .second-item .title {color:#f27f0c; font-weight: bold; line-height:32px;}
+
+/*图片新闻，第一种样式*/
+#index-body .image-news-top .image-news-item-1 {border-bottom: 1px #adadad dashed; padding:10px 0px;}
+#index-body .image-news-top .image-news-item-1 .news-item-title {font-size:16px; line-height: 45px; font-weight: bold;}
+#index-body .image-news-top .image-news-item-1 .news-item-summary {text-indent: 2em; line-height:22px; height: 66px; overflow: hidden;}
+/*图片新闻，更多*/
+#index-body .image-news-more {padding:15px 0px; overflow: hidden;}
+#index-body .image-news-more li {line-height: 26px; height:26px; overflow: hidden;}
+#index-body .image-news-more li span {float: right;}
+/*黄科院简讯*/
+#index-body .jianxun .news-modal-content {max-height:303px; overflow: hidden;}
+
+/*资讯详细页面*/
+#information-detail .info-title {}
+#information-detail .info-time {line-height: 32px;}
+#information-detail .info-line {border-bottom:2px solid #aaaaaa;}
+#information-detail .info-face {padding:15px 0px;}
+#information-detail .info-content {padding:15px 0px; overflow: hidden;}
+#information-detail .info-file { margin-top: 5px;}
+/*咨询列表页面*/
+#info-list-page .page-main {padding-top:15px;}/*左侧栏目统计窗口.*/
+#info-list-page .list-body li {line-height: 38px;}
+
+/* 导航栏样式 */
+.navbar .navbar-header .navbar-toggle {background-color: #75B3D7;  }
+.navbar .navbar-header .navbar-toggle.pull-left {margin: 5px 25px 4px 6px;  }
+.navbar .navbar-header .navbar-toggle {border: 1px solid transparent;  width: 40px;  height: 35px; line-height: 0; padding: 0 0 1px; text-align: center; }
+.navbar .navbar-header .navbar-toggle .icon-bar { background-color: #FFF; border-radius: 0; width: 24px; margin-right: 7px; float: right; }
+.navbar-custom {background-color:#1a75ce; color:#ffffff; font-size: 15px; font-weight: bold; border-radius:0;  }
+.navbar-custom> .container > .navbar-collapse > .navbar-nav > li > a:hover{ background-color:#4F9DF1;  }
+.navbar-nav > li > a:visited {background-color:#4F9DF1;}
+.navbar-nav > li > a:active {background-color:#4F9DF1;}
+.nav .onpen>a:focus, .nav .onpen>a:visited .nav .onpen>a:hover .nav .open>a:active {background-color: #4F9DF1;  }
+.navbar-custom .container .navbar-nav > li > a { color:#ffffff;  }
+.navbar-custom .container .navbar-brand {color:#eeeeee;  }
+.top-menu> li > a:hover{background-color:#4F9DF1;color:#fff;  }
+.top-menu> li > a {color:#fff;}
+.top-menu {background-color:#1a75ce;}
+
+.lanmu .lm02 span{display:block; width:100px; line-height:30px; font-size:16px; color:#0A7CD0;font-weight:bold; float:left;}
+
+/*使标题图片居中显示*/
+.img-responsive{display: inline;}
