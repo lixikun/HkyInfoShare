@@ -1,6 +1,7 @@
 package com.flyrui.framework.struts.interceptor;
 
 import java.lang.reflect.Method;
+import java.util.HashMap;
 import java.util.Map;
 
 import javax.servlet.http.HttpSession;
@@ -10,11 +11,14 @@ import org.apache.struts2.ServletActionContext;
 import org.jasig.cas.client.authentication.AttributePrincipal;
 import org.jasig.cas.client.validation.Assertion;
 
+import com.flyrui.common.SpringBeans;
 import com.flyrui.dao.pojo.sys.User;
 import com.flyrui.exception.ErrorConstants;
 import com.flyrui.exception.FRError;
 import com.flyrui.exception.FRException;
 import com.flyrui.framework.annotation.SessionCheckAnnotation;
+import com.flyrui.sys.service.LoginService;
+import com.opensymphony.xwork2.Action;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionInvocation;
 import com.opensymphony.xwork2.interceptor.AbstractInterceptor;
@@ -32,7 +36,7 @@ public class LoginAuthInterceptor extends AbstractInterceptor {
 		ActionContext ctx = invocation.getInvocationContext();		
 		String method = invocation.getProxy().getMethod();
 		Method m = invocation.getAction().getClass().getDeclaredMethod(method);
-		
+		Action action = (Action)invocation.getAction();
 		//检查方法是否需要判断session登陆
 		boolean isNeed = true;//默认要校验
 		//for(Method m : ms){
@@ -46,6 +50,10 @@ public class LoginAuthInterceptor extends AbstractInterceptor {
 			}
 		//}
 		
+		if(action instanceof com.flyrui.salary.action.SalaryAction || action instanceof com.flyrui.bus.action.BusAction){
+			System.out.println("trr");
+		}
+		
 		String actionName = ctx.getName();
 		Map<String,Object> session = ctx.getSession();
 		Object user = session.get("user");
@@ -56,9 +64,21 @@ public class LoginAuthInterceptor extends AbstractInterceptor {
 			if(assertion!=null){
 				AttributePrincipal principal =assertion.getPrincipal();
 				Map<String, Object> attributes = principal.getAttributes();
-				String userId = (String)attributes.get("userid");
+				String account = (String)attributes.get("account");
+				String userId = (String)attributes.get("id");
+				String bankAccount = (String)attributes.get("bank_account");
+				if(action instanceof com.flyrui.salary.action.SalaryAction || action instanceof com.flyrui.bus.action.BusAction){
+					LoginService loginService = (LoginService)SpringBeans.getBean("loginService");
+					Map param = new HashMap();
+					param.put("bank_account",bankAccount);
+					User salaryUser = loginService.queryUserByBankAccount(param);
+					s.setAttribute("sararyUser", salaryUser);
+				}
+				
 				User tUser = new User();
-				tUser.setUser_code(userId);
+				tUser.setUser_id(userId);
+				tUser.setUser_code(account);
+				tUser.setBank_account(bankAccount);
 				s.setAttribute("user", tUser);
 				user = tUser;
 			}

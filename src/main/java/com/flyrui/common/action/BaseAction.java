@@ -158,6 +158,12 @@ public class BaseAction extends ActionSupport{
 				userCode = user.getId_card();
 			}else if("BANK".equals(actionType)){
 				userCode = user.getBank_account();
+			}else if("SALARY".equals(actionType)){
+				User salaryUser = (User)getSessionAttribute("sararyUser");
+				if(salaryUser!=null){
+					user = salaryUser;
+				}
+				userCode = user.getUser_code();
 			}else{
 				userCode = user.getUser_code();
 			}

@@ -52,7 +52,10 @@
         <default-interceptor-ref name="systemInterceptorStack"/>  
           
         <global-results>  
-            <result name="error">/admin/common/error.jsp</result>  
+            <result name="error" type="json">
+            	<param name="root">result</param>
+            	 <param name="includeProperties">_msg,_code</param>           
+            </result>
             
             <!-- 定义全局导出excel处理 -->
             <result name="excel" type="stream"><!-- type="stream"表示要以二进制的文件去进行下载 -->

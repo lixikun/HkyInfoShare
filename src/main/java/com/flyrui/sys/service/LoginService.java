@@ -8,4 +8,5 @@ import com.flyrui.dao.pojo.sys.User;
 public interface LoginService
 {   
    public Map validateLogin(Map param);
+   public User queryUserByBankAccount(Map param) ;
 }

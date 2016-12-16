@@ -105,6 +105,25 @@ public class LoginServiceImpl  extends BaseService implements LoginService
         return retMap;
     }
    
+    /**
+     * 查询信息
+     * @param param
+     * @return
+     * @throws ServiceException
+     */
+    public User queryUserByBankAccount(Map param) {
+        
+        Map retMap = new HashMap();        
+        
+        String bankAccount = MapUtils.getStrFromMap(param, "bank_account");
+        String pwd = MapUtils.getStrFromMap(param, "password");   
+        TbUser paraUser = new TbUser();
+        paraUser.setBank_account(bankAccount);
+        paraUser.setState(Constants.NORMAL_RECORD_STATE);
+        User user = (User)baseDao.selectOne("queryUserByBankAccountState", paraUser);
+               
+        return user;
+    }
     
     
     

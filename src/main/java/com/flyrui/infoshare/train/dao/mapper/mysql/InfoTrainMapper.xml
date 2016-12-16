@@ -40,7 +40,7 @@
 	    	<if test="train_id != null  and train_id != '' " >
         		and train_id = #{train_id,jdbcType=VARCHAR}
      		</if>
-	    	<if test="seq != null  and seq != '' " >
+	    	<if test="(seq != null  and seq != '') || seq ==0 " >
         		and seq = #{seq,jdbcType=INTEGER}
      		</if>
 	    	<if test="train_name != null  and train_name != '' " >

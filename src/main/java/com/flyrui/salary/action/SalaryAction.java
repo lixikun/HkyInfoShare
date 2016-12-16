@@ -97,7 +97,8 @@ public class SalaryAction extends BaseAction {
     	setResult(pageModel);
     	return SUCCESS;
     }
-    public String qrySalaryByEmployee(){
+    public String qrySalaryByEmployee() throws Exception{
+    	actionType="SALARY";
     	SalaryService salaryService = getSalaryService();
     	if(q==null){
     		busSalary.setUser_code(getUserCode());
@@ -108,10 +109,14 @@ public class SalaryAction extends BaseAction {
     		pageModel.getRows().addAll(sumList);
     	}
     	setResult(pageModel);
+    	if(actionType.equals("SALARY")){
+    		throw new Exception("testEx");
+    	}
     	return SUCCESS;
     }
     
     public String qrySalaryByLevelEmployee(){
+    	actionType="SALARY";
     	SalaryService salaryService = getSalaryService();
     	if(q==null){
     		busSalary.setUser_code(getUserCode());
@@ -226,7 +231,8 @@ public class SalaryAction extends BaseAction {
     	return SUCCESS;
     }
     
-    public  String eportSarary() throws Exception{    	
+    public  String eportSarary() throws Exception{  
+    	actionType="SALARY";
     	SalaryService salaryService = getSalaryService(); 
     	
     	if(busSalary!=null){ 

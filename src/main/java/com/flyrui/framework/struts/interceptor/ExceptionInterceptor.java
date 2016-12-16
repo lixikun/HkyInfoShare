@@ -39,7 +39,7 @@ public class ExceptionInterceptor extends AbstractInterceptor {
 					result.put("_msg", frEx.getError().getErrorMessage());
 				}else{
 					result.put("_code", ErrorConstants.COMMON_SYSTEM_ERROR);
-					result.put("_msg", (new FRError(ErrorConstants.COMMON_SYSTEM_ERROR)).getErrorMessage());
+					result.put("_msg", ex.getMessage());
 				}
 			}
 			return "error";
