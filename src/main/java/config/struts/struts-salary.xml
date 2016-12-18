@@ -19,7 +19,7 @@
     	<!-- result配置:name-方法名称,type:返回类型 -->
         <action name="*!*" class="com.flyrui.bus.action.{1}Action" method="{2}">
         	<result name="busMain"> 
-        	 	/admin/bus/busMan.jsp
+        	 	/bus/busMan.jsp
             </result>
         	 <result type="json">
         	   <!-- 这里指定将被Struts2序列化的属性，该属性在action中必须有对应的getter方法 -->
@@ -33,7 +33,7 @@
     	<!-- result配置:name-方法名称,type:返回类型 -->
         <action name="*!*" class="com.flyrui.salary.action.{1}Action" method="{2}">
         	<result name="print">
-            	/admin/salary/printSalary.jsp
+            	/salary/printSalary.jsp
             </result>
         	 <result type="json">
         	   <!-- 这里指定将被Struts2序列化的属性，该属性在action中必须有对应的getter方法 -->

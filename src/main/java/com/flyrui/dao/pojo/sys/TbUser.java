@@ -38,6 +38,8 @@ public class TbUser implements Serializable {
     
     private String position_level;
     
+    private String cas_account;
+    
     private static final long serialVersionUID = 1L;
 
     public String getUser_id() {
@@ -175,6 +177,15 @@ public class TbUser implements Serializable {
 	public void setPosition_level(String positionLevel) {
 		position_level = positionLevel;
 	}
-    
+
+	public String getCas_account() {
+		return cas_account;
+	}
+
+	public void setCas_account(String cas_account) {
+		this.cas_account = cas_account;
+	}
+   
+	
     
 }

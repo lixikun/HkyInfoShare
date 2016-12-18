@@ -9,4 +9,5 @@ public interface LoginService
 {   
    public Map validateLogin(Map param);
    public User queryUserByBankAccount(Map param) ;
+   public User queryUserByCasAccount(Map param) ;
 }

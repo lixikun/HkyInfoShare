@@ -203,7 +203,7 @@ $(function () {
 		pageSize:20,
 		width:'100%',
 		columns:[[  
-				{field:'name',title:'使用部门',},    
+				{field:'name',title:'使用部门'},    
 				{field:'value',title:'使用数量'}	          
 		]] 
     });

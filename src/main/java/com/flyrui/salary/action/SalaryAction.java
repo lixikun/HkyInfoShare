@@ -28,9 +28,11 @@ import com.flyrui.dao.pojo.salary.BusSalaryLevel;
 import com.flyrui.exception.ErrorConstants;
 import com.flyrui.exception.FRError;
 import com.flyrui.exception.FRException;
+import com.flyrui.framework.annotation.DynaimcDataSourceName;
 import com.flyrui.salary.dto.SalaryDto;
 import com.flyrui.salary.service.SalaryService;
 
+@DynaimcDataSourceName(name="dataSourceSalary")
 public class SalaryAction extends BaseAction {	
 		
     /**
@@ -109,9 +111,6 @@ public class SalaryAction extends BaseAction {
     		pageModel.getRows().addAll(sumList);
     	}
     	setResult(pageModel);
-    	if(actionType.equals("SALARY")){
-    		throw new Exception("testEx");
-    	}
     	return SUCCESS;
     }
     

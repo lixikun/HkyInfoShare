@@ -5,14 +5,13 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import javax.servlet.http.HttpServletRequest;
+import javax.xml.rpc.ServiceException;
 
 import org.apache.log4j.Logger;
 import org.apache.struts2.ServletActionContext;
 import org.springframework.stereotype.Service;
 
 import com.flyrui.common.Constants;
-import com.flyrui.common.ContextHelper;
 import com.flyrui.common.MapUtils;
 import com.flyrui.common.service.BaseService;
 import com.flyrui.dao.common.SQLMapConstant;
@@ -125,7 +124,24 @@ public class LoginServiceImpl  extends BaseService implements LoginService
         return user;
     }
     
-    
+    /**
+     * 查询信息
+     * @param param
+     * @return
+     * @throws ServiceException
+     */
+    public User queryUserByCasAccount(Map param) {
+        
+        Map retMap = new HashMap();        
+        
+        String casAccount = MapUtils.getStrFromMap(param, "cas_account");
+        TbUser paraUser = new TbUser();
+        paraUser.setCas_account(casAccount);
+        paraUser.setState(Constants.NORMAL_RECORD_STATE);
+        User user = (User)baseDao.selectOne("queryUserByCasAccountState", paraUser);
+               
+        return user;
+    }
     
     public void insertSysLog(TbSysLog sysLog){
         try{

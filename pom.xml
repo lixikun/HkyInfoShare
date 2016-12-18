@@ -8,14 +8,15 @@
 	<name>HkyInfoShare</name>
 	<description>Hky Info Share Project</description>
 	<properties>
-    	<org.springframework.version>3.0.5.RELEASE</org.springframework.version>
+    	<org.springframework.version>4.3.4.RELEASE</org.springframework.version>
     	<org.apache.struts.version>2.3.31</org.apache.struts.version>
+    	<org.springasm.version>3.1.4.RELEASE</org.springasm.version>
   	</properties>
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-core</artifactId>
-			<version>${org.springframework.version}</version>
+			<version>${org.springframework.version}</version> 
 		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
@@ -42,11 +43,12 @@
 			<artifactId>spring-aop</artifactId>
 			<version>${org.springframework.version}</version>
 		</dependency>
+		<!-- 
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-asm</artifactId>
-			<version>${org.springframework.version}</version>
-		</dependency>
+			<version>${org.springasm.version}</version>
+		</dependency> -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-webmvc</artifactId>
@@ -63,8 +65,16 @@
 		    <artifactId>aspectjweaver</artifactId>
 		    <version>1.8.9</version>
 		</dependency>
-		
-
+		<dependency> 
+		    <groupId>org.aspectj</groupId>
+		    <artifactId>aspectjweaver</artifactId>
+		    <version>1.8.9</version>
+		</dependency>
+		<dependency>
+		    <groupId>cglib</groupId>
+		    <artifactId>cglib-nodep</artifactId>
+		    <version>3.2.4</version> 
+		</dependency>
 
 		<dependency>
 			<groupId>org.apache.struts</groupId>

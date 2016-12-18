@@ -4,11 +4,14 @@
 	String baseUri = request.getContextPath();
     Long d = (new Date()).getTime();
 %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
-<head>
+<head lang="en">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title></title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1">    
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="renderer" content="webkit"> 
+<title>黄河水利科学院办公系统</title>
 <link href="<%=baseUri %>/public/bootstrap-3.2.0/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="<%=baseUri %>/public/common/ress/css/common.css">
 <link rel="stylesheet" type="text/css" href="<%=baseUri %>/public/easyui/themes/bootstrap/easyui.css">

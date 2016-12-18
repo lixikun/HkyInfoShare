@@ -24,7 +24,38 @@
 	</bean>	-->
 	
 	<!-- 直接使用jdbc  -->
-	<bean id="dataSource"
+	<bean id="dataSourceBase"
+		class="org.apache.commons.dbcp.BasicDataSource">
+		<property name="driverClassName">
+			<!--  <value>oracle.jdbc.driver.OracleDriver</value> -->
+			<value>com.mysql.jdbc.Driver</value>
+		</property>
+		<property name="url">
+			<value>jdbc:mysql://127.0.0.1:3306/infoshare?characterEncoding=UTF-8&amp;useOldAliasMetadataBehavior=true&amp;autoReconnect=true&amp;failOverReadOnly=false</value>
+		</property>
+		<property name="username">
+			<value>root</value>
+		</property>
+		<property name="password">
+			<value>zzulixikun</value>
+		</property>
+		<property name="initialSize"><value>5</value></property>  
+	    <property name="maxActive"><value>32</value></property>
+	    <property name="minIdle"><value>5</value></property>
+	    <property name="maxIdle"><value>32</value></property>  
+	    <property name="maxWait"><value>10000</value></property>
+		<property name= "testWhileIdle" ><value>true</value></property>
+		<property name= "testOnBorrow" ><value>true</value></property>
+		<property name= "testOnReturn" ><value>true</value></property>
+		<property name= "validationQuery" ><value>select 1 from dual</value></property>
+		<property name= "timeBetweenEvictionRunsMillis" ><value>30000</value></property>
+		<property name= "numTestsPerEvictionRun" ><value>32</value></property>
+		<property name="minEvictableIdleTimeMillis"><value>1800000</value></property>
+		<property name="removeAbandoned" ><value>true</value></property> 
+		<property name="removeAbandonedTimeout"><value>180</value></property>
+   </bean>
+   
+   <bean id="dataSourceSalary"
 		class="org.apache.commons.dbcp.BasicDataSource">
 		<property name="driverClassName">
 			<!--  <value>oracle.jdbc.driver.OracleDriver</value> -->
@@ -39,24 +70,60 @@
 		<property name="password">
 			<value>fengrui</value>
 		</property>
+		<property name="initialSize"><value>5</value></property>  
+	    <property name="maxActive"><value>32</value></property>
+	    <property name="minIdle"><value>5</value></property>
+	    <property name="maxIdle"><value>32</value></property>  
+	    <property name="maxWait"><value>10000</value></property>
+		<property name= "testWhileIdle" ><value>true</value></property>
+		<property name= "testOnBorrow" ><value>true</value></property>
+		<property name= "testOnReturn" ><value>true</value></property>
+		<property name= "validationQuery" ><value>select 1 from dual</value></property>
+		<property name= "timeBetweenEvictionRunsMillis" ><value>30000</value></property>
+		<property name= "numTestsPerEvictionRun" ><value>32</value></property>
+		<property name="minEvictableIdleTimeMillis"><value>1800000</value></property>
+		<property name="removeAbandoned" ><value>true</value></property> 
+		<property name="removeAbandonedTimeout"><value>180</value></property>
    </bean>
-   
-   
+
+	<bean id="dynamicDataSource" class="com.flyrui.framework.spring.DynamicDataSource">
+		<!-- 通过key-value的形式来关联数据源 -->
+		<property name="targetDataSources">
+			<map key-type="java.lang.String">
+				<entry value-ref="dataSourceBase" key="dataSourceBase"></entry>
+				<entry value-ref="dataSourceSalary" key="dataSourceSalary"></entry>
+			</map>
+		</property>
+		<property name="defaultTargetDataSource" ref="dataSourceBase">
+		</property>
+	</bean> 
+    
+    
+    <!-- 启用spring 组件扫面功能，可以通过注解方式实例化bean -->    
+    <context:component-scan base-package="com.flyrui" >
+    	<context:include-filter type="regex" expression=".*.service.impl"/> 
+    	<context:include-filter type="regex" expression=".framework.spring"/>    	
+    </context:component-scan>
     
     <!-- 打开 @Autowired 注解 -->
     <context:annotation-config />
     
+    <!-- 激活自动代理功能 
+	<aop:aspectj-autoproxy proxy-target-class="true"/>-->
+    
      <!-- transaction manager, use JtaTransactionManager for global tx -->
     <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
-        <property name="dataSource" ref="dataSource" />
+        <property name="dataSource" ref="dynamicDataSource" />
     </bean>
     
+     
+	
     <!-- jdbc事务配置方式  -->
 	<tx:advice id="txAdvice" transaction-manager="transactionManager">
 	    <tx:attributes>
 	       <tx:method name="*" rollback-for="Exception"/>
 	    </tx:attributes>
-	 </tx:advice>
+	</tx:advice>
 	 
     <!-- enable transaction demarcation with annotations -->
     <!-- <tx:annotation-driven transaction-manager="txAdvice" /> -->
@@ -67,16 +134,10 @@
 	   <aop:advisor advice-ref="txAdvice" pointcut-ref="txOperation"/>        
 	</aop:config>
     
-    <!-- 启用spring 组件扫面功能，可以通过注解方式实例化bean -->    
-    <context:component-scan base-package="com.flyrui" >
-    	<context:include-filter type="regex" expression=".*.service.impl"/>    	
-    </context:component-scan>
-    
-   	
    
    <!-- 定义MyBatis SqlSessionFactory -->
  	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
-        <property name="dataSource" ref="dataSource" />    
+        <property name="dataSource" ref="dynamicDataSource" />    
         <property name="configLocation" value="classpath:config/mybatis/mybatis-config.xml" />  
         <property name="typeAliasesPackage" value="com.flyrui.dao.pojo" />   
         <property name="mapperLocations" value="classpath:com/flyrui/infoshare/*/dao/mapper/mysql/*Mapper.xml"/>    

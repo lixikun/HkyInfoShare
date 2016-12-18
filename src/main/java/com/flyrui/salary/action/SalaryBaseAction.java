@@ -23,6 +23,7 @@ import com.flyrui.dao.pojo.sys.User;
 import com.flyrui.exception.ErrorConstants;
 import com.flyrui.exception.FRError;
 import com.flyrui.exception.FRException;
+import com.flyrui.framework.annotation.DynaimcDataSourceName;
 import com.flyrui.salary.service.BusSalaryBaseService;
 import com.flyrui.salary.service.BusSalaryExtendService;
 import com.flyrui.sys.service.UserService;
@@ -35,6 +36,7 @@ import com.flyrui.sys.service.UserService;
          }) 
 @ExceptionMappings( { @ExceptionMapping(exception = "java.lange.RuntimeException", result = "error") })
 **/
+@DynaimcDataSourceName(name="dataSourceSalary")
 public class SalaryBaseAction extends BaseAction {	
 		
     /**

@@ -16,7 +16,9 @@ import com.flyrui.dao.pojo.sys.User;
 import com.flyrui.exception.ErrorConstants;
 import com.flyrui.exception.FRError;
 import com.flyrui.exception.FRException;
+import com.flyrui.framework.annotation.DynaimcDataSourceName;
 import com.flyrui.framework.annotation.SessionCheckAnnotation;
+import com.flyrui.framework.spring.CustomContextHolder;
 import com.flyrui.sys.service.LoginService;
 import com.opensymphony.xwork2.Action;
 import com.opensymphony.xwork2.ActionContext;
@@ -50,8 +52,12 @@ public class LoginAuthInterceptor extends AbstractInterceptor {
 			}
 		//}
 		
-		if(action instanceof com.flyrui.salary.action.SalaryAction || action instanceof com.flyrui.bus.action.BusAction){
-			System.out.println("trr");
+		//设置多个数据源的dataSource
+		DynaimcDataSourceName dynaimcDataSourceName = invocation.getAction().getClass().getAnnotation(DynaimcDataSourceName.class);
+		if(dynaimcDataSourceName!=null){
+			if(dynaimcDataSourceName.name()!=null && !"".equals(dynaimcDataSourceName.name())){
+				CustomContextHolder.setCustomType(dynaimcDataSourceName.name());
+			}
 		}
 		
 		String actionName = ctx.getName();
@@ -67,14 +73,6 @@ public class LoginAuthInterceptor extends AbstractInterceptor {
 				String account = (String)attributes.get("account");
 				String userId = (String)attributes.get("id");
 				String bankAccount = (String)attributes.get("bank_account");
-				if(action instanceof com.flyrui.salary.action.SalaryAction || action instanceof com.flyrui.bus.action.BusAction){
-					LoginService loginService = (LoginService)SpringBeans.getBean("loginService");
-					Map param = new HashMap();
-					param.put("bank_account",bankAccount);
-					User salaryUser = loginService.queryUserByBankAccount(param);
-					s.setAttribute("sararyUser", salaryUser);
-				}
-				
 				User tUser = new User();
 				tUser.setUser_id(userId);
 				tUser.setUser_code(account);
@@ -84,9 +82,35 @@ public class LoginAuthInterceptor extends AbstractInterceptor {
 			}
 			
 		}
+		
+		Object sararyUser = session.get("sararyUser");
+		if(sararyUser == null){
+			HttpSession s = ServletActionContext.getRequest().getSession();
+			Assertion assertion = (Assertion) s.getAttribute("_const_cas_assertion_");
+			//从单点过来的用户，直接
+			if(assertion!=null){
+				AttributePrincipal principal =assertion.getPrincipal();
+				Map<String, Object> attributes = principal.getAttributes();
+				String account = (String)attributes.get("account");			
+				if(action instanceof com.flyrui.salary.action.SalaryAction || action instanceof com.flyrui.bus.action.BusAction || action instanceof com.flyrui.salary.action.SalaryBaseAction){
+					LoginService loginService = (LoginService)SpringBeans.getBean("loginService");
+					Map param = new HashMap();
+					param.put("cas_account",account);
+					User salaryUser = loginService.queryUserByCasAccount(param);
+					s.setAttribute("sararyUser", salaryUser);
+				}				
+			}			
+		}
+		
 		//validateLogin
 		if(user!=null || !isNeed|| "validateLogin".equals(method) || "loginOut".equals(method)){
-			return invocation.invoke();
+			String retunStr ="";
+			try{
+				retunStr = invocation.invoke();
+			}finally{
+				CustomContextHolder.clearCustomType();
+			}
+			return retunStr;
 		}else{
 			throw new FRException(new FRError(ErrorConstants.SYS_USER_NO_LOGIN));
 		}		

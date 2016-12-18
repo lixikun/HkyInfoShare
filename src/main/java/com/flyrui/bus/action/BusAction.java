@@ -26,8 +26,10 @@ import com.flyrui.dao.pojo.bus.BusTemplateItem;
 import com.flyrui.exception.ErrorConstants;
 import com.flyrui.exception.FRError;
 import com.flyrui.exception.FRException;
+import com.flyrui.framework.annotation.DynaimcDataSourceName;
 import com.flyrui.salary.dto.SalaryDto;
 
+@DynaimcDataSourceName(name="dataSourceSalary")
 public class BusAction extends BaseAction {	
 		
     /**
