@@ -2,6 +2,9 @@
 网站底部，包含了相关链接和版权信息、地址信息、联系方式等。
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%
+	String baseUri = request.getContextPath();
+%>
 <div id="foot" class="container-fluid">
     <div id="foot-nav">
         <div class="container text-center">
@@ -24,5 +27,6 @@
         </div>
     </div>
 </div>
+<script type="text/javascript" src="<%=baseUri %>/public/infoShare/login.js"></script> 
 </body>
 </html>

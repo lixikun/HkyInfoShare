@@ -168,7 +168,10 @@ public class BaseAction extends ActionSupport{
 			}else{
 				userCode = user.getUser_code();
 			}
-		}		
+		}
+		if(userCode==null || "".equals(userCode)){
+			userCode="XXXXXXXXXXXXXX";
+		}
 		return userCode;
 	}
 	

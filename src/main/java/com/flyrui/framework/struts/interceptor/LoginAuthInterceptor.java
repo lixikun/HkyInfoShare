@@ -69,8 +69,12 @@ public class LoginAuthInterceptor extends AbstractInterceptor {
 			//从单点过来的用户，直接
 			if(assertion!=null){
 				AttributePrincipal principal =assertion.getPrincipal();
+				String name = principal.getName();
 				Map<String, Object> attributes = principal.getAttributes();
 				String account = (String)attributes.get("account");
+				if(account==null || "".equals(account)){
+					account = name;
+				}
 				String userId = (String)attributes.get("id");
 				String bankAccount = (String)attributes.get("bank_account");
 				User tUser = new User();
@@ -91,7 +95,11 @@ public class LoginAuthInterceptor extends AbstractInterceptor {
 			if(assertion!=null){
 				AttributePrincipal principal =assertion.getPrincipal();
 				Map<String, Object> attributes = principal.getAttributes();
-				String account = (String)attributes.get("account");			
+				String name = principal.getName();
+				String account = (String)attributes.get("account");	
+				if(account==null || "".equals(account)){
+					account = name;
+				}
 				if(action instanceof com.flyrui.salary.action.SalaryAction || action instanceof com.flyrui.bus.action.BusAction || action instanceof com.flyrui.salary.action.SalaryBaseAction){
 					LoginService loginService = (LoginService)SpringBeans.getBean("loginService");
 					Map param = new HashMap();

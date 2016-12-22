@@ -29,5 +29,12 @@ ul li span {float: right; text-align:right;}
 .news-modal-1 .news-modal-title .title {float:left; font-size:15px; line-height: 33px; padding:0px 10px; font-weight:bold; color:#f3f3f3; background-image: url("/image/news-modal/news-modal-title-text-bg.png"); background-repeat: repeat-x;}
 .news-modal-1 .news-modal-content {border : 1px solid #e1e1e1; border-top:none; padding:10px 10px;}
 .news-modal-1 .news-modal-content li {line-height: 29px; height: 29px; overflow: hidden;}
+
+/*阴影效果*/
+.box-shadow-1{-webkit-box-shadow:0 0 10px rgba(0, 100, 100, .5); -moz-box-shadow:0 0 10px rgba(0, 100, 100, .5); box-shadow:0 5px 15px rgba(26, 117, 206, .5);}
+
+/*增加popover组件偏移量.*/
+.popover.left {margin-left:-20px;}
+.popover-content {color:#000000;}
 .panel-body {padding:0px}
 legend{font-size:16px;margin-bottom:3px}

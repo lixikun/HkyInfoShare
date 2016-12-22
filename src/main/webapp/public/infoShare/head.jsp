@@ -12,7 +12,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
 <meta name="renderer" content="webkit"> 
 <title>黄河水利科学院办公系统</title>
-<link href="<%=baseUri %>/public/bootstrap-3.2.0/css/bootstrap.min.css" rel="stylesheet">
+<link href="<%=baseUri %>/public/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="<%=baseUri %>/public/common/ress/css/common.css">
 <link rel="stylesheet" type="text/css" href="<%=baseUri %>/public/easyui/themes/bootstrap/easyui.css">
 <link rel="stylesheet" type="text/css" href="<%=baseUri %>/public/common/ress/css/jq/jquery.loadmask.css">
@@ -25,8 +25,8 @@
 <script src="${pageContext.request.contextPath}/public/bootstrap-3.2.0/html5shiv.min.js"></script>
 <script src="${pageContext.request.contextPath}/public/bootstrap-3.2.0/respond.min.js"></script>
 <![endif]-->
-
- <script type="text/javascript" src="<%=baseUri %>/ress/js/jquery/jquery-1.8.0.min.js"></script> 
+ 
+ <script type="text/javascript" src="<%=baseUri %>/public/infoShare/jquery-1.11.1.min.js"></script>
 <!--<script type="text/javascript" src="<%=baseUri %>/public/common/ress/js/jquery-1.5.1.min.js"></script>-->
 <script type="text/javascript" src="<%=baseUri %>/public/common/ress/js/jquery.loadmask.min.js"></script>
 <script type="text/javascript" src="<%=baseUri %>/public/common/ress/js/jquery.form.js"></script>
@@ -40,6 +40,6 @@
 <script language="javascript" type="text/javascript" >
 	var base="<%=baseUri%>";
 </script>
-<script src="<%=baseUri %>/public/bootstrap-3.2.0/js/bootstrap.min.js"></script>
+<script src="<%=baseUri %>/public/bootstrap/js/bootstrap.min.js"></script>
 </head>
 <body id="index-page">

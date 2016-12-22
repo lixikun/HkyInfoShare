@@ -47,6 +47,6 @@ public class CASMd5Utils
   
   public static void main(String[] args)
   {
-    System.out.println(getMdResults("123456", "402880bd52b43c210152b43c8c630000", "shimingli"));
+    System.out.println(getMdResults("123456", "402880bd52b43c210152b43c913e002a", "gushuangmei"));
   }
 }
