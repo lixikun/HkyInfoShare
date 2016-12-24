@@ -300,12 +300,12 @@ public class AutoGenerator {
 				if (valideFile(PATH_XML, mapperXMLName, XML_SUFFIX)) {
 					buildMapperXml(columns, types, comments, idMap, mapperName, mapperXMLName,table,beanName);
 				}
-				/*if (valideFile(PATH_SERVICE, serviceName, JAVA_SUFFIX)) {
+				if (valideFile(PATH_SERVICE, serviceName, JAVA_SUFFIX)) {
 					buildService(beanName, serviceName);
 				}
 				if (valideFile(PATH_SERVICE_IMPL, serviceImplName, JAVA_SUFFIX)) {
 					buildServiceImpl(beanName, serviceImplName, serviceName, mapperName);
-				}*/
+				}
 			}
 		} catch (Exception e) {
 			e.printStackTrace();

@@ -35,6 +35,26 @@
     	oper_staff,
     	audit_staff
   </sql>
+  <sql id="Base_Column_List2" >
+    	a.train_id,
+    	a.seq,
+    	a.train_name,
+    	a.train_title,
+    	a.train_type,
+    	a.train_content,
+    	a.train_start,
+    	a.train_end,
+    	a.train_peoples,
+    	a.department,
+    	a.people_amount,
+    	a.state,
+    	a.create_date,
+    	a.oper_staff,
+    	a.audit_staff,
+    	b.dict_value as train_type_name,
+    	c.name as department_name,
+    	d.name as audit_staff_name    	
+  </sql>
   <sql id="Base_Where_Clause" >
     <where >
 	    	<if test="train_id != null  and train_id != '' " >
@@ -47,7 +67,7 @@
         		and train_name = #{train_name,jdbcType=VARCHAR}
      		</if>
 	    	<if test="train_title != null  and train_title != '' " >
-        		and train_title = #{train_title,jdbcType=VARCHAR}
+        		and train_title like #{train_title,jdbcType=VARCHAR}
      		</if>
 	    	<if test="train_type != null  and train_type != '' " >
         		and train_type = #{train_type,jdbcType=VARCHAR}
@@ -76,6 +96,12 @@
 	    	<if test="create_date != null " >
         		and create_date = #{create_date,jdbcType=TIMESTAMP}
      		</if>
+     		<if test="train_date_start != null and train_date_start != '' " >
+        		and create_date &gt;= str_to_date(#{train_date_start,jdbcType=VARCHAR},'%Y-%m-%d')
+     		</if>
+     		<if test="train_date_end != null and train_date_end != '' " >
+        		and create_date &lt;= str_to_date(#{train_date_end,jdbcType=VARCHAR},'%Y-%m-%d')
+     		</if>
 	    	<if test="oper_staff != null  and oper_staff != '' " >
         		and oper_staff = #{oper_staff,jdbcType=VARCHAR}
      		</if>
@@ -86,8 +112,10 @@
   </sql>
   <select id="select" resultMap="BaseResultMap" parameterType="com.flyrui.infoshare.train.pojo.InfoTrain" >
     select    
-    <include refid="Base_Column_List" />
-    from info_train
+    <include refid="Base_Column_List2" />
+    from info_train a left join info_dict b on b.dict_code = a.train_type and b.dict_type = 'TrainType'
+    left join core_department c on c.id = a.department 
+    left join core_user d on a.audit_staff = d.id
     <if test="_parameter != null" >
       <include refid="Base_Where_Clause" />
     </if>
@@ -138,9 +166,7 @@
   <update id="update" parameterType="com.flyrui.infoshare.train.pojo.InfoTrain">
     update info_train
     set
-   		<if test="train_id != null  and train_id != '' " >
-      		train_id = #{train_id,jdbcType=VARCHAR},
-   		</if>
+   		
    		<if test="seq != null  and seq != '' " >
       		seq = #{seq,jdbcType=INTEGER},
    		</if>
@@ -181,11 +207,20 @@
       		oper_staff = #{oper_staff,jdbcType=VARCHAR},
    		</if>
    		<if test="audit_staff != null  and audit_staff != '' " >
-      		audit_staff = #{audit_staff,jdbcType=VARCHAR}
+      		audit_staff = #{audit_staff,jdbcType=VARCHAR},
    		</if>
-    <if test="_parameter != null" >
-      <include refid="Base_Where_Clause" />
-    </if>
+   		<if test="train_id != null  and train_id != '' " >
+      		train_id = #{train_id,jdbcType=VARCHAR}
+   		</if>
+   where train_id = #{train_id,jdbcType=VARCHAR} and seq= 0;
     
   </update>
+  
+  <select id="queryMaxSeq" resultMap="BaseResultMap" parameterType="com.flyrui.infoshare.train.pojo.InfoTrain" >
+    select  max(seq) as seq  from info_train where train_id = #{train_id,jdbcType=VARCHAR}
+  </select>
+   <insert id="bakOldRecord" parameterType="com.flyrui.infoshare.train.pojo.InfoTrain" >
+     insert into info_train ( <include refid="Base_Column_List" />)
+     select train_id,#{seq,jdbcType=VARCHAR},train_name,train_title,train_type,train_content,train_start,train_end,train_peoples,department,people_amount,'0',now(),oper_staff,audit_staff from info_train where train_id = #{train_id,jdbcType=VARCHAR} and seq = 0 
+  </insert>
 </mapper>

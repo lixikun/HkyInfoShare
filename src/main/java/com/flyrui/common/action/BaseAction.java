@@ -155,6 +155,7 @@ public class BaseAction extends ActionSupport{
 		String userCode = "";
 		if( user !=null ){
 			if("BUS".equals(actionType)){
+				user = (User)getSessionAttribute("sararyUser");
 				userCode = user.getId_card();
 			}else if("BANK".equals(actionType)){
 				user = (User)getSessionAttribute("sararyUser");
