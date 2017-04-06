@@ -13,7 +13,7 @@
 <div region="center" class="easyui-layout" style="border:0">
     <div region="north" style="height:70px;;border:0;padding:0px" id="search">
         <fieldset>
-	    <legend>查询条件</legend>        
+	    <legend>培训登记</legend>        
         	<div id="conditionDiv">        	
             <label style="margin-left:10px">培训名称：</label><input type="text" class="easyui-textbox" name="train_title" db_field="infoTrain.train_title" is_like="0"  />
             <label style="margin-left:10px">培训部门:</label><input class="easyui-combobox" name="department" db_field="infoTrain.department"  data-options="valueField:'id',textField:'name',url:'<%=baseUri %>/InfoCommon/queryById.do?sqlId=1'" />
@@ -76,8 +76,8 @@
 </div>
 <div id="dialogWindow" data-options="border:'thin',collapsible:false,minimizable: false,shadow:false" >
     <div class="easyui-layout" data-options="fit:true,border:false" >
-        <div data-options="region:'center',border:false" style="padding:0px;">
-            <iframe src=""  data-options="border:false"  style="width:100%;height:100%" frameborder="0"></iframe>
+        <div data-options="region:'center',border:false" style="padding:0px;overflow:hidden">
+            <iframe src=""  data-options="border:false"  style="width:100%;height:100%;" frameborder="0"></iframe>
         </div> 
         <div data-options="region:'south',border:false" style="text-align:right;padding:10px 10px;border-top:0px solid #ddd;height:50px">
             <a class="easyui-linkbutton color1" href="javascript:void(0)" onclick="javascript:operEdit.save();" style="width:80px">保存</a>

@@ -12,15 +12,15 @@ public class AutoGeneratorMain{
         cg.setDbDriverName("com.mysql.jdbc.Driver");
         cg.setDbUser("root");
         cg.setDbPassword("zzulixikun");
-        cg.setDbUrl("jdbc:mysql://127.0.0.1:3306/fengruidb?characterEncoding=utf8");
+        cg.setDbUrl("jdbc:mysql://127.0.0.1:3306/infoshare?characterEncoding=utf8");
 
         // 配置包名
         /* */
-        cg.setEntityPackage("com.flyrui.infoshare.train.pojo");
-        cg.setMapperPackage("com.flyrui.infoshare.train.dao.mapper");
-        cg.setServicePackage("com.flyrui.infoshare.train.service");
-        cg.setXmlPackage("com.flyrui.infoshare.train.dao.mapper.mysql");
-        cg.setServiceImplPackage("com.flyrui.infoshare.train.service.impl");
+        cg.setEntityPackage("com.flyrui.infoshare.common.pojo");
+        cg.setMapperPackage("com.flyrui.infoshare.common.dao.mapper");
+        cg.setServicePackage("com.flyrui.infoshare.common.service");
+        cg.setXmlPackage("com.flyrui.infoshare.common.dao.mapper.mysql");
+        cg.setServiceImplPackage("com.flyrui.infoshare.common.service.impl");
         
         /*cg.setEntityPackage("test");
         cg.setMapperPackage("test");
@@ -28,12 +28,12 @@ public class AutoGeneratorMain{
         cg.setXmlPackage("test");
         cg.setServiceImplPackage("test.impl"); */
         
-        cg.setTableNames(new String[]{"info_train"});
+        cg.setTableNames(new String[]{"info_serv_file"});
         cg.setDbColumnUnderline(true);//设置数据库是否为下划线
         cg.setIdType(IdType.INPUT);//设置ID主键策略
 
         // 配置保存路径
-        cg.setSaveDir("E:\\work\\github\\HkyInfoShare\\src\\main\\java");
+        cg.setSaveDir("E:\\work\\github\\HkyInfoShare\\src\\main\\resources");
 
         // 其他参数请根据上面的参数说明自行配置，当所有配置完善后，运行AutoGenerator.run()方法生成Code
         // 生成代码

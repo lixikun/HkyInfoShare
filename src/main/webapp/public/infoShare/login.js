@@ -22,9 +22,9 @@ function showOrHideMenu(event){
 }
 
 //检查用户登录状态并设置相关视图。
-function checkLogin(){
+function checkLogin(flag){
     $.get("/account/login-user", {}, function(res){
-        var user = res.user;
+        var user = res.user;        
         if(user){
             //已经登陆.
             //隐藏登陆连接.
@@ -42,9 +42,17 @@ function checkLogin(){
             $(".start-menu").show();
             $(".start-menu:visible:first").parent().popover('show');
         }else{
-            //没有登陆系统.
-            $("#login-link").show();
-            $(".start-menu").hide();
+        	if(!flag){
+	        	//如果没登录，则去主网站自动登录下
+	            $.get("/manager/login",{},function(){
+	            	checkLogin(true)
+	            });
+        	}
+        	if(flag){
+        		//没有登陆系统.
+        		$("#login-link").show();
+        		$(".start-menu").hide();
+        	}
         }
     }, "json");
 }

@@ -5,7 +5,7 @@
 /*头部样式*/
 #head { width:100%;  background-image: url("/image/web-head/head-bg.png"); background-repeat: repeat-x;}
 #head #logo {margin:20px 0px;}
-#head .login-link {line-height: 30px; padding:10px 15px;}
+#head .login-link {line-height: 30px; padding:10px 5px;}
 #head .login-input {width:120px; margin-right: 2px; padding:0px 3px;}
 /*导航栏*/
 #nav {width: 100%; height: 40px; overflow: hidden; background-image: url("/image/web-head/nav-bg.jpg"); background-repeat: repeat-x;}
@@ -13,14 +13,16 @@
 #nav .nav-split {float:left; width:3px; height: 40px; background-image: url("/image/web-head/nav-item-split.png"); background-repeat: no-repeat;}
 /*功能菜单栏*/
 .start-menu {font-size:26px; line-height: 50px; cursor: pointer;}
+.start-menu .job-remind {display:none; position: absolute; right:-8px; top:0px; font-size:12px; color:#ffffff; background-color: #f5881b; height:25px; width:25px; line-height:19px; text-align: center; font-size:17px; font-weight:bold; border:1px solid #ffffff;}
 #menu-container {display:none; background-color: #f3f3f3; font-size:12px; position: absolute; z-index: 100; border:1px solid #b1b1b1; border-top:none; padding:15px;}
 #menu-container .menu-group {padding-left:20px; width:100%; float:left; }
 #menu-container .menu-group .group-title {position: absolute; left:10px; width:30px; padding: 5px 10px; font-size:12px; font-weight: bold; color:gray; border-right:1px solid #b1b1b1;}
 #menu-container .menu-item {cursor: pointer; width:100px; float:left; padding:10px 0px; font-size:12px; color:gray; }
 #menu-container .menu-item:hover {font-weight: bold; color:#000000; }
-#menu-container .menu-item .menu-img-div {width:50px; height:50px; margin:0 auto;}
+#menu-container .menu-item .menu-img-div {width:50px; height:50px; margin:0 auto; position: relative;}
 #menu-container .menu-item .menu-img-div .disable-div {display:none; width:50px; height:50px; position: absolute; z-index: 101; background:rgba(255, 255, 255, 0.7)!important; filter:Alpha(opacity=70); background:#fff; }
 #menu-container .menu-item .menu-img-div .disable-div-disabled {width:50px; height:50px; position: absolute; z-index: 101; background:rgba(255, 255, 255, 0.7)!important; filter:Alpha(opacity=70); background:#fff; }
+#menu-container .menu-item .menu-img-div .process-job-remind {display:none; position: absolute; right:-10px; top:-10px; font-size:12px !important; color:#ffffff; background-color: #f5881b; height:22px; width:22px; line-height:22px; text-align: center; font-size:17px; font-weight:bold; border:1px solid #ffffff;}
 #menu-container .menu-panel {overflow :hidden; }
 #menu-container .menu-panel .menu-group-border {width:100%; height:0px; float: left; border-bottom:1px solid gray; margin:0px 0px 0px 40px;}
 #menu-container .menu-panel .function-panel-border {width:1px; height: 100%; position: absolute; right:0px; background-color: #888888;}
@@ -29,9 +31,11 @@
 #menu-container .function-panel .function-group {margin :15px 0px;}
 #menu-container .function-panel .function-group .function-group-title {border-bottom:1px solid gray; font-size:14px; line-height: 30px;}
 #menu-container .function-panel .function-group .function-group-title .more {font-size:12px;}
-#menu-container .function-panel .user-message .message-title {line-height: 28px; padding-left:15px;}
-#menu-container .function-panel .user-message .message-title .message-mark {width:15px; float: left; position: absolute; left:15px;}
-#menu-container .function-panel .user-message .message-title .message-mark.unread {color:blue;}
+#menu-container .function-panel .message-title {line-height: 28px; height: 28px; overflow: hidden; padding-left:15px;}
+#menu-container .function-panel .message-title .message-mark {width:15px; float: left; position: absolute; left:15px;}
+#menu-container .function-panel .message-title .message-mark.unread {color:blue;}
+#menu-container .function-panel .message-title .message-time {color:gray; padding-left:5px;}
+
 /*网站底部*/
 #foot {padding:15px 0px; line-height: 32px;}
 #foot #foot-nav {background-color: #1a75ce; color:#f0f0f0;}

@@ -475,14 +475,17 @@ var CommonUtils={
     		options.id = 'dialogWindow';
     	}    	
     	options.width = options.width || 700;
-    	options.height = options.height || 450;
+    	options.height = options.height || 500;
     	
     	var scrollT = $(document).scrollTop();
+    	//alert(scrollT);
     	if(scrollT<0 || scrollT>$(window).height()/2){
     		scrollT = 0;
     	}
     	//alert(scrollT);
-    	var vTop = ($(document.body).height()- options.height) * 0.5+scrollT;
+    	//alert($(document.body).height());
+    	//($(document.body).height()- options.height) * 0.5
+    	var vTop = 50+scrollT;
     	//alert(vTop);
     	if(vTop<0){
     		vTop = 20;
@@ -537,7 +540,15 @@ var CommonUtils={
     			}
     		}
         });
-    }
+    },
+    showMsgAlert : function(msg,callback) {
+    	top.window.$.messager.alert({
+            title: '消息',
+            msg:'<div style="padding-top: 10px;">' + msg||"消息内容！" + '</div>',
+            icon: 'info',
+            callback
+        });
+    },
 }
 
 //经常用的是通过遍历,重构数组.  

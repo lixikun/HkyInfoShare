@@ -13,7 +13,7 @@
 <div region="center" class="easyui-layout" style="border:0">
     <div region="north" style="height:70px;;border:0;padding:0px" id="search">
         <fieldset>
-	    <legend>查询条件</legend>        
+	    <legend>仪器设备</legend>        
         	<div id="conditionDiv">  
         	<label>资产编号：</label><input type="text" class="easyui-textbox" name="asset_code" db_field="infoAsset.asset_code" is_like="0"  />       	
             <label style="margin-left:10px">资产姓名：</label><input type="text" class="easyui-textbox" name="asset_name" db_field="infoAsset.asset_name" is_like="0"  />

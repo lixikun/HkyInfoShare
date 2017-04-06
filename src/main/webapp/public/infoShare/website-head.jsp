@@ -13,14 +13,14 @@
                 </div>
                 <div class="col-xs-12 col-sm-6">
                     <%--<a class="pull-right login-link" href="#" onclick="openLoginWin()" style="display:none;">登陆系统</a>--%>
-                    <div id="login-link" style="text-align:right; display:none;padding-top:5px;float: right">
+                    <div id="login-link" style="text-align:right; padding-top:5px;float: right">
                         <%--<input id="loginName" name="loginName" placeholder="登录账号" class="login-input">--%>
                         <%--<input type="password" id="loginPassword" name="loginPassword" placeholder="登录密码" class="login-input">--%>
                         <%--<button onclick="login()">登录</button>--%>
-                        <a href="${pageContext.request.contextPath}/manager/login" style="text-decoration: none;font-weight: bold;color: #1a75ce;"> 登录系统 </a>
+                        <a href="/manager/login" style="text-decoration: none;font-weight: bold;color: #1a75ce;"> 登录系统 </a>
                         &nbsp;&nbsp;<a href="/wx/RetrievePassword" style="text-decoration: none;">重置密码</a>&nbsp;&nbsp;<a href="http://10.4.56.5/" style="text-decoration: none;font-weight: bold;color: #1a75ce;"> 进入旧版OA系统 </a>
                     </div>
-                    <div id="login-user-info" style="text-align:right; padding-top:5px;   width:100%;">
+                    <div id="login-user-info" style="text-align:right; padding-top:5px; display:none; width:100%;">
                         <a class="login-link">您好：<span id="login-user-name-top"></span>（<span id="login-user-dep-top"></span>）</a>
                         <a class="pull-right login-link hidden-xs" href="http://10.4.56.5:8080/" style="padding:0px;padding-left: 5%;font-weight: bold;color: #1a75ce;"> 进入旧版OA系统</a>
                         <a class="pull-right login-link" href="/cas/logout" style="padding:0px;">安全退出</a>
@@ -62,8 +62,10 @@
                     </ul>
                 </li>
             </ul>
-            <div class="pull-right" data-container="body" data-toggle="popover" data-placement="auto left" data-content="功能菜单在这里!">
-                <span class="start-menu glyphicon glyphicon-th-large" style="display: none;"></span>
+           <div class="pull-right" data-container="body" data-toggle="popover" data-placement="auto left" data-content="功能菜单在这里!">
+                <div class="start-menu glyphicon glyphicon-th-large" style="display: none;">
+                    <div class="job-remind img-circle"></div>
+                </div>
             </div>
         </div>
         <div class="visible-xs-block">
@@ -89,7 +91,7 @@
                             <div class="disable-div-disabled"></div>
                             <img class="img-responsive menu-img" src="/image/menu-ico/19.png">
                         </div>
-                        <div class="menu-text text-center">科研项目/合同</div>
+                        <div class="menu-text-c text-center">科研项目/合同</div>
                         </a>
                     </div>
                     <div class="menu-item">
@@ -98,7 +100,7 @@
                             <div class="disable-div-disabled"></div>
                             <img class="img-responsive menu-img" src="/image/menu-ico/15.png">
                         </div>
-                        <div class="menu-text text-center">科研报告</div>
+                        <div class="menu-text-c text-center">科研报告</div>
                         </a>
                     </div>
                     <div class="menu-item">
@@ -107,7 +109,7 @@
                             <div class="disable-div-disabled"></div>
                             <img class="img-responsive menu-img" src="/image/menu-ico/12.png">
                         </div>
-                        <div class="menu-text text-center">科研论文</div>
+                        <div class="menu-text-c text-center">科研论文</div>
                         </a>
                     </div>
                     <div class="menu-item">
@@ -116,7 +118,7 @@
                             <div class="disable-div-disabled"></div>
                             <img class="img-responsive menu-img" src="/image/menu-ico/24.png">
                         </div>
-                        <div class="menu-text text-center">出版专著</div>
+                        <div class="menu-text-c text-center">出版专著</div>
                         </a>
                     </div>
                     <div class="menu-item">
@@ -125,7 +127,7 @@
                             <div class="disable-div-disabled"></div>
                             <img class="img-responsive menu-img" src="/image/menu-ico/36.png">
                         </div>
-                        <div class="menu-text text-center">专利</div>
+                        <div class="menu-text-c text-center">专利</div>
                         </a>
                     </div>
                     <div class="menu-item">
@@ -134,7 +136,7 @@
                             <div class="disable-div-disabled"></div>
                             <img class="img-responsive menu-img" src="/image/menu-ico/32.png">
                         </div>
-                        <div class="menu-text text-center">著作权</div>
+                        <div class="menu-text-c text-center">著作权</div>
                         </a>
                     </div>
                     <div class="menu-item">
@@ -143,7 +145,7 @@
                             <div class="disable-div-disabled"></div>
                             <img class="img-responsive menu-img" src="/image/menu-ico/38.png">
                         </div>
-                        <div class="menu-text text-center">工程技术奖项</div>
+                        <div class="menu-text-c text-center">工程技术奖项</div>
                         </a>
                     </div>
                     <div class="menu-item">
@@ -152,7 +154,7 @@
                             <div class="disable-div-disabled"></div>
                             <img class="img-responsive menu-img" src="/image/menu-ico/33.png">
                         </div>
-                        <div class="menu-text text-center">设备仪器</div>
+                        <div class="menu-text-c text-center">设备仪器</div>
                         </a>
                     </div>
                     <div class="menu-item">
@@ -161,7 +163,7 @@
                                 <div class="disable-div-disabled"></div>
                                 <img class="img-responsive menu-img" src="/image/menu-ico/40.png">
                             </div>
-                            <div class="menu-text text-center">荣誉称号</div>
+                            <div class="menu-text-c text-center">荣誉称号</div>
                         </a>
                     </div>
                     <div class="menu-item">
@@ -169,49 +171,49 @@
                             <div class="disable-div-disabled"></div>
                             <img class="img-responsive menu-img" src="/image/menu-ico/07.png">
                         </div>
-                        <div class="menu-text text-center">经费计划</div>
+                        <div class="menu-text-c text-center">经费计划</div>
                     </div>
                     <div class="menu-item">
                         <div class="menu-img-div">
                             <div class="disable-div-disabled"></div>
                             <img class="img-responsive menu-img" src="/image/menu-ico/08.png">
                         </div>
-                        <div class="menu-text text-center">经费支出</div>
+                        <div class="menu-text-c text-center">经费支出</div>
                     </div>
                     <div class="menu-item">
                         <div class="menu-img-div">
                             <div class="disable-div-disabled"></div>
                             <img class="img-responsive menu-img" src="/image/menu-ico/11.png">
                         </div>
-                        <div class="menu-text text-center">经费结算</div>
+                        <div class="menu-text-c text-center">经费结算</div>
                     </div>
                     <div class="menu-item">
                         <div class="menu-img-div">
                             <div class="disable-div-disabled"></div>
                             <img class="img-responsive menu-img" src="/image/menu-ico/26.png">
                         </div>
-                        <div class="menu-text text-center">资产购置</div>
+                        <div class="menu-text-c text-center">资产购置</div>
                     </div>
                     <div class="menu-item">
                         <div class="menu-img-div">
                             <div class="disable-div-disabled"></div>
                             <img class="img-responsive menu-img" src="/image/menu-ico/01.png">
                         </div>
-                        <div class="menu-text text-center">报告审查</div>
+                        <div class="menu-text-c text-center">报告审查</div>
                     </div>
                     <div class="menu-item">
                         <div class="menu-img-div">
                             <div class="disable-div-disabled"></div>
                             <img class="img-responsive menu-img" src="/image/menu-ico/19.png">
                         </div>
-                        <div class="menu-text text-center">科研项目变更</div>
+                        <div class="menu-text-c text-center">科研项目变更</div>
                     </div>
                     <div class="menu-item">
                         <div class="menu-img-div">
                             <div class="disable-div-disabled"></div>
                             <img class="img-responsive menu-img" src="/image/menu-ico/04.png">
                         </div>
-                        <div class="menu-text text-center">出差审批</div>
+                        <div class="menu-text-c text-center">出差审批</div>
                     </div>
                     <div class="menu-item">
                         <a class="noline" href="/manager/xxgx/work-plan">
@@ -219,7 +221,7 @@
                             <div class="disable-div-disabled"></div>
                             <img class="img-responsive menu-img" src="/image/menu-ico/39.png">
                         </div>
-                        <div class="menu-text text-center">周工作安排</div>
+                        <div class="menu-text-c text-center">周工作安排</div>
                         </a>
                     </div>
                     <div class="menu-item">
@@ -227,14 +229,14 @@
                             <div class="disable-div-disabled"></div>
                             <img class="img-responsive menu-img" src="/image/menu-ico/33.png">
                         </div>
-                        <div class="menu-text text-center">办公物资领用</div>
+                        <div class="menu-text-c text-center">办公物资领用</div>
                     </div>
                     <div class="menu-item">
                         <div class="menu-img-div">
                             <div class="disable-div-disabled"></div>
                             <img class="img-responsive menu-img" src="/image/menu-ico/46.png">
                         </div>
-                        <div class="menu-text text-center">培训登记</div>
+                        <div class="menu-text-c text-center">培训登记</div>
                     </div>
 
                     <div class="menu-item">
@@ -243,7 +245,7 @@
                             <div class="disable-div-disabled"></div>
                             <img class="img-responsive menu-img" src="/image/menu-ico/11.png">
                         </div>
-                        <div class="menu-text text-center">个税查询</div>
+                        <div class="menu-text-c text-center">个税查询</div>
                         </a>
                     </div>
                     <div class="menu-item">
@@ -251,7 +253,7 @@
                             <div class="disable-div-disabled"></div>
                             <img class="img-responsive menu-img" src="/image/menu-ico/10.png">
                         </div>
-                        <div class="menu-text text-center">工资查询</div>
+                        <div class="menu-text-c text-center">工资查询</div>
                     </div>
                     <div class="menu-item">
                         <a class="noling" href="/manager/xxgx/person">
@@ -259,7 +261,7 @@
                             <div class="disable-div-disabled"></div>
                             <img class="img-responsive menu-img" src="/image/menu-ico/21.png">
                         </div>
-                        <div class="menu-text text-center">人员信息</div>
+                        <div class="menu-text-c text-center">人员信息</div>
                         </a>
                     </div>
                 </div>
@@ -275,7 +277,7 @@
                             <div class="process-job-remind img-circle" pdk="swglProcess"></div>
                             <img class="img-responsive menu-img" src="/image/menu-ico/15.png">
                         </div>
-                        <div class="menu-text text-center">收文管理</div>
+                        <div class="menu-text-c text-center">收文管理</div>
                         </a>
                     </div>
                     <div class="menu-item">
@@ -285,7 +287,7 @@
                             <div class="process-job-remind img-circle" pdk="fwglProcess"></div>
                             <img class="img-responsive menu-img" src="/image/menu-ico/01.png">
                         </div>
-                        <div class="menu-text text-center">发文管理</div>
+                        <div class="menu-text-c text-center">发文管理</div>
                         </a>
                     </div>
                     <div class="menu-item">
@@ -295,7 +297,7 @@
                             <div class="process-job-remind img-circle" pdk="wcsqProcess"></div>
                             <img class="img-responsive menu-img" src="/image/menu-ico/04.png">
                         </div>
-                        <div class="menu-text text-center">领导外出登记</div>
+                        <div class="menu-text-c text-center">领导外出登记</div>
                         </a>
                     </div>
                     <div class="menu-item">
@@ -305,7 +307,7 @@
                             <div class="process-job-remind img-circle" pdk="xjsqProcess"></div>
                             <img class="img-responsive menu-img" src="/image/menu-ico/20.png">
                         </div>
-                        <div class="menu-text text-center">休假审批</div>
+                        <div class="menu-text-c text-center">休假审批</div>
                         </a>
                     </div>
                     <div class="menu-item">
@@ -315,7 +317,7 @@
                                 <div class="process-job-remind img-circle" pdk="xxsh"></div>
                                 <img class="img-responsive menu-img" src="/image/menu-ico/12.png">
                             </div>
-                            <div class="menu-text text-center">新闻稿件审核</div>
+                            <div class="menu-text-c text-center">新闻稿件审核</div>
                         </a>
                     </div>
                     <div class="menu-item">
@@ -323,77 +325,77 @@
                             <div class="disable-div-disabled"></div>
                             <img class="img-responsive menu-img" src="/image/menu-ico/12.png">
                         </div>
-                        <div class="menu-text text-center">合同签订</div>
+                        <div class="menu-text-c text-center">合同签订</div>
                     </div>
                     <div class="menu-item">
                         <div class="menu-img-div">
                             <div class="disable-div-disabled"></div>
                             <img class="img-responsive menu-img" src="/image/menu-ico/07.png">
                         </div>
-                        <div class="menu-text text-center">经费计划</div>
+                        <div class="menu-text-c text-center">经费计划</div>
                     </div>
                     <div class="menu-item">
                         <div class="menu-img-div">
                             <div class="disable-div-disabled"></div>
                             <img class="img-responsive menu-img" src="/image/menu-ico/08.png">
                         </div>
-                        <div class="menu-text text-center">预算支付</div>
+                        <div class="menu-text-c text-center">预算支付</div>
                     </div>
                     <div class="menu-item">
                         <div class="menu-img-div">
                             <div class="disable-div-disabled"></div>
                             <img class="img-responsive menu-img" src="/image/menu-ico/09.png">
                         </div>
-                        <div class="menu-text text-center">经费结算</div>
+                        <div class="menu-text-c text-center">经费结算</div>
                     </div>
                     <div class="menu-item">
                         <div class="menu-img-div">
                             <div class="disable-div-disabled"></div>
                             <img class="img-responsive menu-img" src="/image/menu-ico/03.png">
                         </div>
-                        <div class="menu-text text-center">会议申请</div>
+                        <div class="menu-text-c text-center">会议申请</div>
                     </div>
                     <div class="menu-item">
                         <div class="menu-img-div">
                             <div class="disable-div-disabled"></div>
                             <img class="img-responsive menu-img" src="/image/menu-ico/24.png">
                         </div>
-                        <div class="menu-text text-center">论文备案</div>
+                        <div class="menu-text-c text-center">论文备案</div>
                     </div>
                     <div class="menu-item">
                         <div class="menu-img-div">
                             <div class="disable-div-disabled"></div>
                             <img class="img-responsive menu-img" src="/image/menu-ico/30.png">
                         </div>
-                        <div class="menu-text text-center">专著备案</div>
+                        <div class="menu-text-c text-center">专著备案</div>
                     </div>
                     <div class="menu-item">
                         <div class="menu-img-div">
                             <div class="disable-div-disabled"></div>
                             <img class="img-responsive menu-img" src="/image/menu-ico/31.png">
                         </div>
-                        <div class="menu-text text-center">固定资产</div>
+                        <div class="menu-text-c text-center">固定资产</div>
                     </div>
                     <div class="menu-item">
                         <div class="menu-img-div">
                             <div class="disable-div-disabled"></div>
                             <img class="img-responsive menu-img" src="/image/menu-ico/24.png">
                         </div>
-                        <div class="menu-text text-center">报告审查</div>
+                        <div class="menu-text-c text-center">报告审查</div>
                     </div>
                     <div class="menu-item">
                         <div class="menu-img-div">
                             <div class="disable-div-disabled"></div>
                             <img class="img-responsive menu-img" src="/image/menu-ico/29.png">
                         </div>
-                        <div class="menu-text text-center">项目变更</div>
+                        <div class="menu-text-c text-center">项目变更</div>
                     </div>
                     <div class="menu-item">
                         <div class="menu-img-div">
                             <div class="disable-div-disabled"></div>
                             <img class="img-responsive menu-img" src="/image/menu-ico/04.png">
                         </div>
-                        <div class="menu-text text-center">出差审批</div>
+                        <div class="menu-text-c text-center">出差审批</div>
                     </div>
                     <div class="menu-item">
                         <div class="menu-img-div">
@@ -407,35 +409,35 @@
                             <div class="disable-div-disabled"></div>
                             <img class="img-responsive menu-img" src="/image/menu-ico/34.png">
                         </div>
-                        <div class="menu-text text-center">请假审批</div>
+                        <div class="menu-text-c text-center">请假审批</div>
                     </div>
                     <div class="menu-item">
                         <div class="menu-img-div">
                             <div class="disable-div-disabled"></div>
                             <img class="img-responsive menu-img" src="/image/menu-ico/39.png">
                         </div>
-                        <div class="menu-text text-center">考勤管理</div>
+                        <div class="menu-text-c text-center">考勤管理</div>
                     </div>
                     <div class="menu-item">
                         <div class="menu-img-div">
                             <div class="disable-div-disabled"></div>
                             <img class="img-responsive menu-img" src="/image/menu-ico/46.png">
                         </div>
-                        <div class="menu-text text-center">培训登记</div>
+                        <div class="menu-text-c text-center">培训登记</div>
                     </div>
                     <div class="menu-item">
                         <div class="menu-img-div">
                             <div class="disable-div-disabled"></div>
                             <img class="img-responsive menu-img" src="/image/menu-ico/13.png">
                         </div>
-                        <div class="menu-text text-center">任务交办</div>
+                        <div class="menu-text-c text-center">任务交办</div>
                     </div>
                     <div class="menu-item">
                         <div class="menu-img-div">
                             <div class="disable-div-disabled"></div>
                             <img class="img-responsive menu-img" src="/image/menu-ico/02.png">
                         </div>
-                        <div class="menu-text text-center">绩效考核</div>
+                        <div class="menu-text-c text-center">绩效考核</div>
                     </div>
                 </div>
 
@@ -449,7 +451,7 @@
                             <div class="disable-div-disabled"></div>
                             <img class="img-responsive menu-img" src="/image/menu-ico/44.png">
                         </div>
-                        <div class="menu-text text-center">机构管理</div>
+                        <div class="menu-text-c text-center">机构管理</div>
                         </a>
                     </div>
                     <div class="menu-item">
@@ -458,7 +460,7 @@
                             <div class="disable-div-disabled"></div>
                             <img class="img-responsive menu-img" src="/image/menu-ico/28.png">
                         </div>
-                        <div class="menu-text text-center">人员管理</div>
+                        <div class="menu-text-c text-center">人员管理</div>
                         </a>
                     </div>
                     <div class="menu-item">
@@ -467,7 +469,7 @@
                             <div class="disable-div-disabled"></div>
                             <img class="img-responsive menu-img" src="/image/menu-ico/16.png">
                         </div>
-                        <div class="menu-text text-center">角色管理</div>
+                        <div class="menu-text-c text-center">角色管理</div>
                         </a>
                     </div>
                     <div class="menu-item">
@@ -476,7 +478,7 @@
                             <div class="disable-div-disabled"></div>
                             <img class="img-responsive menu-img" src="/image/menu-ico/12.png">
                         </div>
-                        <div class="menu-text text-center">栏目管理</div>
+                        <div class="menu-text-c text-center">栏目管理</div>
                         </a>
                     </div>
                     <div class="menu-item">
@@ -485,7 +487,7 @@
                             <div class="disable-div-disabled"></div>
                             <img class="img-responsive menu-img" src="/image/menu-ico/42.png">
                         </div>
-                        <div class="menu-text text-center">流程管理</div>
+                        <div class="menu-text-c text-center">流程管理</div>
                         </a>
                     </div>
                     <div class="menu-item">
@@ -494,7 +496,7 @@
                             <div class="disable-div-disabled"></div>
                             <img class="img-responsive menu-img" src="/image/menu-ico/09.png">
                         </div>
-                        <div class="menu-text text-center">个税管理</div>
+                        <div class="menu-text-c text-center">个税管理</div>
                         </a>
                     </div>
                     <div class="menu-item">
@@ -503,7 +505,7 @@
                             <div class="disable-div-disabled"></div>
                             <img class="img-responsive menu-img" src="/image/menu-ico/16.png">
                         </div>
-                        <div class="menu-text text-center">操作日志</div>
+                        <div class="menu-text-c text-center">操作日志</div>
                         </a>
                     </div>
                 </div>
@@ -518,7 +520,7 @@
                             <div class="disable-div-disabled"></div>
                             <img class="img-responsive menu-img" src="/image/menu-ico/01.png">
                         </div>
-                        <div class="menu-text text-center">信息发布</div>
+                        <div class="menu-text-c text-center">信息发布</div>
                         </a>
                     </div>
                     <div class="menu-item">
@@ -527,7 +529,7 @@
                             <div class="disable-div-disabled"></div>
                             <img class="img-responsive menu-img" src="/image/menu-ico/39.png">
                         </div>
-                        <div class="menu-text text-center">周工作报会</div>
+                        <div class="menu-text-c text-center">周工作报会</div>
                         </a>
                     </div>
                     <div class="menu-item">
@@ -536,7 +538,7 @@
                             <div class="disable-div-disabled"></div>
                             <img class="img-responsive menu-img" src="/image/menu-ico/29.png">
                         </div>
-                        <div class="menu-text text-center">周工作发布</div>
+                        <div class="menu-text-c text-center">周工作发布</div>
                         </a>
                     </div>
                     <div class="menu-item">
@@ -545,7 +547,7 @@
                             <div class="disable-div-disabled"></div>
                             <img class="img-responsive menu-img" src="/image/menu-ico/15.png">
                         </div>
-                        <div class="menu-text text-center">周工作管理</div>
+                        <div class="menu-text-c text-center">周工作管理</div>
                         </a>
                     </div>
                     <div class="menu-item">
@@ -554,7 +556,7 @@
                                 <div class="disable-div-disabled"></div>
                                 <img class="img-responsive menu-img" src="/image/menu-ico/40.png">
                             </div>
-                            <div class="menu-text text-center">荣誉称号管理</div>
+                            <div class="menu-text-c text-center">荣誉称号管理</div>
                         </a>
                     </div>
                     <div class="menu-item">
@@ -563,7 +565,7 @@
                                 <div class="disable-div-disabled"></div>
                                 <img class="img-responsive menu-img" src="/image/menu-ico/21.png">
                             </div>
-                            <div class="menu-text text-center">人员信息管理</div>
+                            <div class="menu-text-c text-center">人员信息管理</div>
                         </a>
                     </div>
                 </div>

@@ -12,30 +12,33 @@
 	var q="<s:property value="q" />";
 </script>
 <div region="center" class="easyui-layout" style="border:0px">
-    <div region="north" style="height:40px;border:0px" id="search">
+    <div region="north" style="height:80px;border:0px" id="search">
         <div region="center" id="searchDiv" style="margin-top: 10px;margin-left: 5px;border:0px">
-        	<div>         	
-	            <label>查询开始时间：</label><input type="text" name="col5_start" db_field="busData.col5_start" is_like="0" class="easyui-datebox" style="width:100px;" />
-	            <label>查询结束时间：</label><input type="text" name="c0l5_end" db_field="busData.col5_end" is_like="0" class="easyui-datebox" style="width:100px;" />
-	            <s:if test="%{q == 1}">
-	               <label>证件号码：</label><input type="text" name="s_user_code" db_field="busData.user_code" need_encode="1" is_like="1" style="width:100px;">
-	               <label>员工名称：</label><input type="text" name="s_user_name" db_field="busData.col1" need_encode="1" is_like="1" style="width:100px;">	            
-	            </s:if>
-	            <s:else>
-	            	<a href="javascript:void(0);" class="easyui-linkbutton" id="search_btn" iconCls="icon-search">查询</a>
-	            </s:else>
-	           <input type="hidden" db_field="busData.bus_id" is_like="0" value="<s:property value="busId" />"> 
-	        
-	        <s:if test="%{q == 1}">
-            	
-                 
-	            	<label>批次号：</label><input type="text" name="s_batch_id" db_field="busData.batch_id" is_like="0" style="width:150px;"> 
-	            	<a href="javascript:void(0);" class="easyui-linkbutton" id="delete_by_batch_btn" >按批次删除</a>
-	            
-	            	<a href="javascript:void(0);" class="easyui-linkbutton" id="search_btn" iconCls="icon-search">查询</a>
-            	
-            </s:if>
-            </div>
+            <fieldset>
+		    	<legend>个税查询</legend> 
+	        	<div>         	
+		            <label>查询开始时间：</label><input type="text" name="col5_start" db_field="busData.col5_start" is_like="0" class="easyui-datebox" style="width:100px;" />
+		            <label>查询结束时间：</label><input type="text" name="c0l5_end" db_field="busData.col5_end" is_like="0" class="easyui-datebox" style="width:100px;" />
+		            <s:if test="%{q == 1}">
+		               <label>证件号码：</label><input type="text" name="s_user_code" db_field="busData.user_code" need_encode="1" is_like="1" style="width:100px;">
+		               <label>员工名称：</label><input type="text" name="s_user_name" db_field="busData.col1" need_encode="1" is_like="1" style="width:100px;">	            
+		            </s:if>
+		            <s:else>
+		            	<a href="javascript:void(0);" class="easyui-linkbutton" id="search_btn" iconCls="icon-search">查询</a>
+		            </s:else>
+		           <input type="hidden" db_field="busData.bus_id" is_like="0" value="<s:property value="busId" />"> 
+		        
+			        <s:if test="%{q == 1}">
+		            	
+		                 
+			            	<label>批次号：</label><input type="text" name="s_batch_id" db_field="busData.batch_id" is_like="0" style="width:150px;"> 
+			            	<a href="javascript:void(0);" class="easyui-linkbutton" id="delete_by_batch_btn" >按批次删除</a>
+			            
+			            	<a href="javascript:void(0);" class="easyui-linkbutton" id="search_btn" iconCls="icon-search">查询</a>
+		            	
+		            </s:if>
+	            </div>
+            </fieldset>
         </div>
      </div>
 

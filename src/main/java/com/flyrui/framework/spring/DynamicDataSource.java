@@ -12,7 +12,7 @@ public class DynamicDataSource extends AbstractRoutingDataSource{
     	if(dataSource==null){
         	log.info("当前使用默认数据源");
     	}else{
-    		log.info("当前使用的数据源是:"+dataSource);
+    		log.info("当前使用的数据源是:"+dataSource); 
     	}
         return dataSource;  
     }

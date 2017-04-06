@@ -57,7 +57,16 @@ public class InfoTrain implements Serializable {
 
 	/** 审核员工 */
 	private String audit_staff;
-
+	
+	private String train_type_name;
+	
+	private String department_name;
+	
+	private String audit_staff_name;
+	
+	private String train_date_start;
+	
+	private String train_date_end;
 
 	public String getTrain_id() {
 		return this.train_id;
@@ -178,5 +187,47 @@ public class InfoTrain implements Serializable {
 	public void setAudit_staff(String audit_staff) {
 		this.audit_staff = audit_staff;
 	}
+
+	public String getTrain_type_name() {
+		return train_type_name;
+	}
+
+	public void setTrain_type_name(String train_type_name) {
+		this.train_type_name = train_type_name;
+	}
+
+	public String getDepartment_name() {
+		return department_name;
+	}
+
+	public void setDepartment_name(String department_name) {
+		this.department_name = department_name;
+	}
+
+	public String getAudit_staff_name() {
+		return audit_staff_name;
+	}
+
+	public void setAudit_staff_name(String audit_staff_name) {
+		this.audit_staff_name = audit_staff_name;
+	}
+
+	public String getTrain_date_start() {
+		return train_date_start;
+	}
+
+	public void setTrain_date_start(String train_date_start) {
+		this.train_date_start = train_date_start;
+	}
+
+	public String getTrain_date_end() {
+		return train_date_end;
+	}
+
+	public void setTrain_date_end(String train_date_end) {
+		this.train_date_end = train_date_end;
+	}
+	
+	
 
 }

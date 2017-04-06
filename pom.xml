@@ -9,7 +9,7 @@
 	<description>Hky Info Share Project</description>
 	<properties>
     	<org.springframework.version>4.3.4.RELEASE</org.springframework.version>
-    	<org.apache.struts.version>2.3.31</org.apache.struts.version>
+    	<org.apache.struts.version>2.3.32</org.apache.struts.version>
     	<org.springasm.version>3.1.4.RELEASE</org.springasm.version>
   	</properties>
 	<dependencies>
@@ -30,7 +30,7 @@
 		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
-			<artifactId>spring-jdbc</artifactId>
+			<artifactId>spring-jdbc</artifactId> 
 			<version>${org.springframework.version}</version>
 		</dependency>
 		<dependency>
@@ -76,11 +76,6 @@
 		    <version>3.2.4</version> 
 		</dependency>
 
-		<dependency>
-			<groupId>org.apache.struts</groupId>
-			<artifactId>struts2-core</artifactId>
-			<version>${org.apache.struts.version}</version>
-		</dependency>
 		<dependency>
 			<groupId>org.apache.struts</groupId>
 			<artifactId>struts2-core</artifactId>
